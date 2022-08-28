@@ -1,0 +1,37 @@
+name: KNIME LABS CI
+on: [push]
+
+jobs:
+  knime-node-tests:
+    name: KNIME Labs Nodes Tests
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["penguin"]
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache conda
+        uses: actions/cache@v2
+        env:
+          CACHE_NUMBER: 0
+          ENV_FILE: ${{ matrix.node }}/conda.yml
+        with:
+          path: ~/conda_pkgs_dir
+          key:
+            ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
+            hashFiles(format('{0}/conda.yml', matrix.node)) }}
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: knime-labs-penguin-env
+          channel-priority: strict
+          environment-file: ${{ matrix.node }}/conda.yml
+          use-only-tar-bz2: true
+      - name: Lint Tests
+        working-directory: ./${{ matrix.node }}
+        shell: bash -l {0}
+        run: flake8
+      - name: Unit Tests
+        shell: bash -l {0}
+        working-directory: ./${{ matrix.node }}
+        run: pytest

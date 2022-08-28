@@ -1,0 +1,10 @@
+name: penguin
+author: Pablo Osinaga
+env_yml_path: conda.yml
+extension_module: node/node
+description: Penguin (Palmer Archipelago)
+long_description: A demo implementation of the penguin node.
+group_id: com.github.paguos.knime.labs
+version: 0.1.0
+vendor: None
+license_file: LICENSE.TXT
