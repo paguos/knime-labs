@@ -1,0 +1,13 @@
+name: knime-labs-penguin-env
+channels:
+  - knime
+  - conda-forge
+dependencies:
+  - packaging
+  - python=3.9
+  - knime-extension
+  - knime-python-base
+  - requests
+  - autopep8
+  - flake8
+  - pytest
