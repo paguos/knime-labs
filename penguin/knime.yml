@@ -1,6 +1,6 @@
 name: penguin
 author: Pablo Osinaga
-env_yml_path: conda.yml
+env_yml_path: environment.yml
 extension_module: node/node
 description: Penguin (Palmer Archipelago)
 long_description: A demo implementation of the penguin node.
