@@ -3,7 +3,7 @@ CONDA_ENV = knime-labs-${NODE}-env
 BUILD_ENV = knime-ext-bundling
 
 create/conda:
-	conda env create  -f ${NODE}/conda.yml   
+	conda env create  -f ${NODE}/environment.yml   
 
 create/builder:
 	conda create -n ${BUILD_ENV} -c knime -c conda-forge knime-extension-bundling   
