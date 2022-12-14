@@ -1,0 +1,10 @@
+name: understats
+author: Pablo Osinaga
+env_yml_path: <path/to/the/conda_env.yml>
+extension_module: node/node
+description: Understats League Reader
+long_description: A demo implementation of the penguin node.
+group_id: com.github.paguos.knime.labs
+version: 0.1.0
+vendor: None
+license_file: LICENSE.TXT
